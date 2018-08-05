@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingBottom="20dp"
+    tools:context=".views.main.drawer.DrawerFragment">
+
+    <com.github.siyamed.shapeimageview.CircularImageView
+        android:id="@+id/user_image"
+        android:layout_marginTop="55dp"
+        android:layout_centerHorizontal="true"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@mipmap/logo"
+        app:siBorderWidth="6dp"
+        app:siBorderColor="@android:color/white"/>
+
+    <TextView
+        android:id="@+id/user_email"
+        android:textColor="@android:color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/user_image"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:text="user@email.com" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:padding="10dp"
+        android:layout_below="@id/user_email"
+        android:background="@android:color/white"/>
+
+    <TextView
+        android:id="@+id/logout_textBtn"
+        android:clickable="true"
+        android:background="?attr/selectableItemBackground"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingRight="20dp"
+        android:textColor="@android:color/white"
+        android:text="Cerrar sesión"/>
+
+</RelativeLayout>

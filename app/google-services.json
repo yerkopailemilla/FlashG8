@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "142060393857",
+    "firebase_url": "https://flashg8-69058.firebaseio.com",
+    "project_id": "flashg8-69058",
+    "storage_bucket": "flashg8-69058.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:142060393857:android:ffeb710dee27017f",
+        "android_client_info": {
+          "package_name": "cl.desafiolatam.yerkos.flashg8"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "142060393857-t9joq2109pqn7c4gi3ga5go7t739fofa.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "cl.desafiolatam.yerkos.flashg8",
+            "certificate_hash": "89cb4b86c48f65a8fd840f5d36a8f99124cb65e1"
+          }
+        },
+        {
+          "client_id": "142060393857-f4su3n31vq63mv6hs3r56p7hu6jqfcua.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAdcQRFnsUWcNuUulXaDDNZsz5zv1oLaMo"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "142060393857-f4su3n31vq63mv6hs3r56p7hu6jqfcua.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
