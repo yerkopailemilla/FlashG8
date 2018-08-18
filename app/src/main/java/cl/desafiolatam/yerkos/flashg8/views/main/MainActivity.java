@@ -17,16 +17,22 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import cl.desafiolatam.yerkos.flashg8.R;
+import cl.desafiolatam.yerkos.flashg8.views.main.chats.ChatsFragment;
 import cl.desafiolatam.yerkos.flashg8.views.main.finder.FinderDialogFragment;
 
 public class MainActivity extends AppCompatActivity {
+
+    private ChatsFragment chatsFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("FlashG8 - Yerko Pailemilla Parada");
+
+        chatsFragment = (ChatsFragment) getSupportFragmentManager().findFragmentById(R.id.chatsFragment);
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -44,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
@@ -53,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {

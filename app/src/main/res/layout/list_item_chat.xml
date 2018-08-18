@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/lyt_chat"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingBottom="8dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="8dp">
+
+    <com.github.siyamed.shapeimageview.BubbleImageView
+        android:id="@+id/photoBiv"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        app:siArrowPosition="right"
+        app:siSquare="true" />
+
+    <TextView
+        android:paddingRight="8dp"
+        android:paddingLeft="8dp"
+        android:textSize="16sp"
+        android:id="@+id/emailTv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1" />
+
+    <View
+        android:id="@+id/notificationV"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:background="@drawable/bg_circular_accent"
+        android:visibility="gone" />
+
+</LinearLayout>
