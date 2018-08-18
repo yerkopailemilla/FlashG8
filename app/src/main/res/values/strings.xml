@@ -3,8 +3,8 @@
 
     <string name="facebook_application_id" translatable="false">584603455271262</string>
 
-    <string name="twitter_consumer_key" translatable="false">3bChkb5w3i2im6ASKYjX4WTCA</string>
-    <string name="twitter_consumer_secret" translatable="false">7Dz56Avf9LO81icantTOZcCGUa4IvG6ZhFqEhsOb0g71rGuUvO</string>
+    <string name="twitter_consumer_key" translatable="false">aFNBRkDVeb5qoOzlk47S5tdgJ</string>
+    <string name="twitter_consumer_secret" translatable="false">4oBXh3i1p18et09td8aEtkFB0xnnizX51gd7QUbwPBTbpu4IVu</string>
 
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>

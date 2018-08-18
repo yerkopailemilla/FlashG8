@@ -14,14 +14,15 @@ import cl.desafiolatam.yerkos.flashg8.models.User;
 public class UploadPhoto {
 
     private Context context;
+    private CurrentUser currentUser = new CurrentUser();
+    private EmailProcessor emailProcessor = new EmailProcessor();
 
     public UploadPhoto(Context context) {
         this.context = context;
     }
 
     public void uploadToFirebase(String path){
-        final CurrentUser currentUser = new CurrentUser();
-        String folder = currentUser.sanitizedEmail(currentUser.email() + "/");
+        String folder = emailProcessor.sanitizedEmail(currentUser.email() + "/");
         String photoName = "avatar.jpeg";
         String baseUrl = "gs://flashg8-69058.appspot.com/avatar/";
         String refUrl = baseUrl + folder + photoName;
@@ -39,7 +40,7 @@ public class UploadPhoto {
                 user.setName(currentUser.getCurrentUser().getDisplayName());
                 user.setPhoto(url);
                 user.setUid(currentUser.uId());
-                String key = currentUser.sanitizedEmail(currentUser.email());
+                String key = emailProcessor.sanitizedEmail(currentUser.email());
                 new Nodes().user(key).setValue(user);
             }
         });
