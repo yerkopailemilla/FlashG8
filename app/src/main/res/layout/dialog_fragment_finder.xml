@@ -7,26 +7,8 @@
     android:background="@color/colorPrimaryDark"
     android:gravity="center"
     android:orientation="horizontal">
-    
-    <EditText
-        android:id="@+id/finder_email_tv"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:hint="Búsqueda por email"
-        android:background="@color/colorPrimary"
-        android:inputType="textEmailAddress"
-        android:textColorHint="@android:color/white"
-        android:textColor="@android:color/white"
-        android:padding="5dp"/>
-    
-    <ImageButton
-        android:id="@+id/finder_send_btn"
-        android:layout_width="45dp"
-        android:layout_height="45dp"
-        android:scaleType="centerCrop"
-        android:src="@mipmap/ic_send"
-        android:theme="@style/AccentButton"/>
+
+    <include layout="@layout/input_send" />
 
     <com.github.ybq.android.spinkit.SpinKitView
         android:id="@+id/loadingSpinKit"
