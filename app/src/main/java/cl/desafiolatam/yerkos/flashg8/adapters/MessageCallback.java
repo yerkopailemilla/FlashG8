@@ -1,4 +1,4 @@
-package cl.desafiolatam.yerkos.flashg8.views.main.chats;
+package cl.desafiolatam.yerkos.flashg8.adapters;
 
 public interface MessageCallback {
     void update();

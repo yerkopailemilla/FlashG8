@@ -67,6 +67,8 @@ public class EmailVerification {
     private void createChats(User otherUser){
         FirebaseUser currentUser = new CurrentUser().getCurrentUser();
         String photo = new PhotoPreferences(context).getPhoto();
+        String currentUid = currentUser.getUid();
+        String otherUid = otherUser.getUid();
 
         String key = new EmailProcessor().keyEmails(otherUser.getEmail());
         Chat currentChat = new Chat();
@@ -74,15 +76,17 @@ public class EmailVerification {
         currentChat.setPhoto(otherUser.getPhoto());
         currentChat.setNotification(true);
         currentChat.setReceiver(otherUser.getEmail());
+        currentChat.setUid(otherUid);
 
         Chat otherChat = new Chat();
         otherChat.setKey(key);
         otherChat.setPhoto(photo);
         otherChat.setNotification(true);
         otherChat.setReceiver(currentUser.getEmail());
+        otherChat.setUid(currentUid);
 
-        new Nodes().userChat(currentUser.getUid()).child(key).setValue(currentChat);
-        new Nodes().userChat(otherUser.getUid()).child(key).setValue(otherChat);
+        new Nodes().userChat(currentUid).child(key).setValue(currentChat);
+        new Nodes().userChat(otherUid).child(key).setValue(otherChat);
 
         finderCallback.success();
 

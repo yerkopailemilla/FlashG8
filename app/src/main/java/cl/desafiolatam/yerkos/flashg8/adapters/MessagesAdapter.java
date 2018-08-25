@@ -14,7 +14,6 @@ import com.firebase.ui.database.FirebaseRecyclerOptions;
 import cl.desafiolatam.yerkos.flashg8.R;
 import cl.desafiolatam.yerkos.flashg8.data.CurrentUser;
 import cl.desafiolatam.yerkos.flashg8.models.Message;
-import cl.desafiolatam.yerkos.flashg8.views.main.chats.MessageCallback;
 
 public class MessagesAdapter extends FirebaseRecyclerAdapter<Message, MessagesAdapter.MessageViewHolder> {
 

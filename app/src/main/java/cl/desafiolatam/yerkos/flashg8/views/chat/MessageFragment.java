@@ -1,4 +1,4 @@
-package cl.desafiolatam.yerkos.flashg8.views.main.chats;
+package cl.desafiolatam.yerkos.flashg8.views.chat;
 
 
 import android.os.Bundle;
@@ -14,9 +14,12 @@ import android.view.ViewGroup;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 
 import cl.desafiolatam.yerkos.flashg8.R;
+import cl.desafiolatam.yerkos.flashg8.adapters.MessageCallback;
 import cl.desafiolatam.yerkos.flashg8.adapters.MessagesAdapter;
 import cl.desafiolatam.yerkos.flashg8.data.Nodes;
+import cl.desafiolatam.yerkos.flashg8.models.Chat;
 import cl.desafiolatam.yerkos.flashg8.models.Message;
+import cl.desafiolatam.yerkos.flashg8.views.main.chats.ChatsFragment;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -43,13 +46,13 @@ public class MessageFragment extends Fragment implements MessageCallback {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         messageRecyclerView = view.findViewById(R.id.messageRecyclerView);
-        String chatKey = getActivity().getIntent().getStringExtra(ChatsFragment.CHAT_KEY);
+        Chat chat = (Chat) getActivity().getIntent().getSerializableExtra(ChatsFragment.CHAT);
 
         messageRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-//        albumsRecycler.setHasFixedSize(true);
+        messageRecyclerView.setHasFixedSize(true);
 
         FirebaseRecyclerOptions<Message> options = new FirebaseRecyclerOptions.Builder<Message>()
-                .setQuery(new Nodes().messages(chatKey), Message.class)
+                .setQuery(new Nodes().messages(chat.getKey()), Message.class)
                 .setLifecycleOwner(this)
                 .build();
 
@@ -60,5 +63,11 @@ public class MessageFragment extends Fragment implements MessageCallback {
     @Override
     public void update() {
         messageRecyclerView.scrollToPosition(messagesAdapter.getItemCount() -1);
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        messagesAdapter.stopListening();
     }
 }

@@ -1,7 +1,9 @@
 package cl.desafiolatam.yerkos.flashg8.adapters;
 
+import cl.desafiolatam.yerkos.flashg8.models.Chat;
+
 public interface ChatsListener {
 
-    void chatClicked(String chatKey, String userName);
+    void chatClicked(Chat chat);
 
 }

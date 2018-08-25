@@ -1,9 +1,12 @@
 package cl.desafiolatam.yerkos.flashg8.models;
 
-public class Chat {
+import java.io.Serializable;
 
-    private String photo, receiver, key;
+public class Chat implements Serializable {
+
+    private String photo, receiver, key, uid;
     private boolean notification;
+    private long timestamp;
 
     public Chat() {
     }
@@ -32,11 +35,27 @@ public class Chat {
         this.key = key;
     }
 
+    public String getUid() {
+        return uid;
+    }
+
+    public void setUid(String uid) {
+        this.uid = uid;
+    }
+
     public boolean isNotification() {
         return notification;
     }
 
     public void setNotification(boolean notification) {
         this.notification = notification;
+    }
+
+    public long getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(long timestamp) {
+        this.timestamp = timestamp;
     }
 }

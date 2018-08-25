@@ -1,4 +1,4 @@
-package cl.desafiolatam.yerkos.flashg8.views.main.chats;
+package cl.desafiolatam.yerkos.flashg8.views.chat;
 
 
 import android.os.Bundle;
@@ -8,11 +8,12 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 
 import cl.desafiolatam.yerkos.flashg8.R;
+import cl.desafiolatam.yerkos.flashg8.models.Chat;
+import cl.desafiolatam.yerkos.flashg8.views.main.chats.ChatsFragment;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -36,7 +37,7 @@ public class MessageInputFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        final String chatKey = getActivity().getIntent().getStringExtra(ChatsFragment.CHAT_KEY);
+        final Chat chat = (Chat) getActivity().getIntent().getSerializableExtra(ChatsFragment.CHAT);
         final EditText et = view.findViewById(R.id.finder_email_tv);
         et.setHint("Escribe un mensaje...");
 
@@ -45,7 +46,7 @@ public class MessageInputFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 String message = et.getText().toString();
-                new SendMessage().validateMessage(message, chatKey);
+                new SendMessage().validateMessage(message, chat);
                 et.setText("");
             }
         });

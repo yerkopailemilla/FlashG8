@@ -11,7 +11,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 
@@ -21,12 +20,13 @@ import cl.desafiolatam.yerkos.flashg8.adapters.ChatsListener;
 import cl.desafiolatam.yerkos.flashg8.data.CurrentUser;
 import cl.desafiolatam.yerkos.flashg8.data.Nodes;
 import cl.desafiolatam.yerkos.flashg8.models.Chat;
+import cl.desafiolatam.yerkos.flashg8.views.chat.ChatDetailActivity;
 
 public class ChatsFragment extends Fragment implements ChatsListener {
 
     private RecyclerView chatsRecyclerView;
-    public static final String CHAT_KEY = "cl.desafiolatam.yerkos.flashg8.views.main.chats.KEY.CHAT_KEY";
-    public static final String CHAT_RECEIVER = "cl.desafiolatam.yerkos.flashg8.views.main.chats.KEY.CHAT_RECEIVER";
+    public static final String CHAT = "cl.desafiolatam.yerkos.flashg8.views.main.chats.KEY.CHAT";
+    private ChatsAdapter chatsAdapter;
 
     public ChatsFragment() {
         // Required empty public constructor
@@ -52,15 +52,20 @@ public class ChatsFragment extends Fragment implements ChatsListener {
                 .setLifecycleOwner(this)
                 .build();
 
-        ChatsAdapter chatsAdapter = new ChatsAdapter(options, this);
+        chatsAdapter = new ChatsAdapter(options, this);
         chatsRecyclerView.setAdapter(chatsAdapter);
     }
 
     @Override
-    public void chatClicked(String chatKey, String userName) {
+    public void chatClicked(Chat chat) {
         Intent goToDetail = new Intent(getActivity(), ChatDetailActivity.class);
-        goToDetail.putExtra(CHAT_KEY, chatKey);
-        goToDetail.putExtra(CHAT_RECEIVER, userName);
+        goToDetail.putExtra(CHAT, chat);
         startActivity(goToDetail);
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        chatsAdapter.stopListening();
     }
 }

@@ -5,18 +5,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".views.main.chats.ChatDetailActivity">
+    tools:context=".views.chat.ChatDetailActivity">
 
     <fragment
         android:id="@+id/messageFragment"
-        android:name="cl.desafiolatam.yerkos.flashg8.views.main.chats.MessageFragment"
+        android:name="cl.desafiolatam.yerkos.flashg8.views.chat.MessageFragment"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"/>
     
     <fragment
         android:id="@+id/inputSendFragment"
-        android:name="cl.desafiolatam.yerkos.flashg8.views.main.chats.MessageInputFragment"
+        android:name="cl.desafiolatam.yerkos.flashg8.views.chat.MessageInputFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
